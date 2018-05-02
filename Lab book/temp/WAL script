@@ -1,0 +1,27 @@
+Fieldanalog(1:183)=[];
+Rxx1Ch1(1:183)=[];
+Rxy1Ch1(1:183)=[];
+ Rxx1Ch1=Rxx1Ch1*1000000;
+Rxy1Ch1=Rxy1Ch1*1000000;
+Rxx1Ch1=Rxx1Ch1*0.2518;
+>> [R,B]=work_with_film1(Fieldanalog,Rxx1Ch1,5500,'a','a','a',0,1);
+>> plot(B,R)
+>> a=min(R);
+q=R.^2;
+sigma=R./q;
+>> sigmaO=1/a;
+sigma=sigma-sigmaO;
+B=[B,-B(end:-1:1)];
+sigma=[sigma,sigma(end:-1:1)];
+plot(B,sigma)
+>> clear all;
+>> plot(Fieldanalog,Rxx1Ch1)
+>> Fieldanalog(1:231)=[];
+Rxx1Ch1(1:231)=[];
+Rxy1Ch1(1:231)=[];
+>> Fieldanalog(10983:end)=[];
+Rxx1Ch1(10983:end)=[];
+Rxy1Ch1(10983:end)=[];
+>> plot(Fieldanalog,Rxx1Ch1)
+>>  Rxx1Ch1=Rxx1Ch1*1000000;
+Rxy1Ch1=Rxy1Ch1*1000000;
